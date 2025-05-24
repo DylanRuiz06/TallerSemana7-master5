@@ -41,7 +41,7 @@ public class AvengersFrmGUI {
         calcularAporteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InformeAvenger informeAvengerForm = new InformeAvenger(listaAvengers); //Mandamos la listaAvengers como parametro para mantener los datos
+                InformeAvenger informeAvengerForm = new InformeAvenger(listaAvengers); //Enviar la listaAvengers como parametro para mantener los datos
                 JFrame frame = new JFrame("Informe Avenger");
                 frame.setContentPane(informeAvengerForm.getMainPanel());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
