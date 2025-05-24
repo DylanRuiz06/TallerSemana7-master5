@@ -24,22 +24,29 @@ public class InformeAvenger {
         String IDBuscar = textArea1.getText();
         textArea1.setText("");
         StringBuilder sb = new StringBuilder(); //String builder donde se guardará la información
+        boolean resultado = false; //variable para verificar si el avegner fue encontrado
         for (Avenger a : lista.getLista()) { //Se crea un for para recorrer la lista
                 if (IDBuscar.isEmpty()) { //Detecta si el campo de búsqueda está vacío y envía un mensaje en caso de que suceda
                     JOptionPane.showMessageDialog(null, "Ingrese un ID válido. ");
-                }else
+                    return;
+                }
                 if (a.getID().equals(IDBuscar)) { //Se compara el Id ingresado con los Id de la lista
                     sb.append(a.toString()); //Una vez se encuentra se concatena la información
                     sb.append("Fondo Héroes: $" + a.CalcularFondoHeroes()).append("\n");
                     sb.append("Impuesto: $" + a.calcularImpuesto());
+                    resultado = true;
                     break; //Romper el ciclo for una vez encontrado el Avenger.
-                } else {
-                    JOptionPane.showMessageDialog(null, "Avenger no encontrado."); //En caso de que no haya sido encontrado envía un mensjae de error
                 }
 
         }
+        if (resultado) { //comprobar la variable resultado
+            textArea2.setText(sb.toString()); //Muestra la información encontrada en el área de texto correspondiente
+        } else {
+            JOptionPane.showMessageDialog(null, "Avenger no encontrado.");
+            textArea2.setText("");
+        }
 
-        textArea2.setText(sb.toString()); //Muestra la información encontrada en el área de texto correspondiente
+
     }
 
     public JPanel getMainPanel() {
